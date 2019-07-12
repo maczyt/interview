@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>浮动布局三两事</title>
+  <link rel="stylesheet" href="../static/css/common.css">
+  <style>
+    .reply {
+      border: 1px solid fuchsia;
+      margin: 30px 20px;
+    }
+
+    h2 {
+      color: #666;
+      font-style: italic;
+    }
+
+    /* 高度已知条件 */
+
+    .left-center-right {
+      height: 200px;
+    }
+
+    .left,
+    .center,
+    .right {
+      height: 100%;
+    }
+
+    .left,
+    .right {
+      width: 300px;
+    }
+
+    .left {
+      background-color: violet;
+    }
+
+    .center {
+      background-color: tomato;
+    }
+
+    .right {
+      background-color: royalblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="task-title">
+    圣杯布局&amp;双飞翼布局
+  </div>
+
+  <section class="task-reply">
+    <section class="reply shengbei" id="shengbei">
+      <h2>圣杯</h2>
+      <style>
+        .shengbei {
+          min-width: 900px;
+        }
+
+        .left-center-right {
+          padding: 0 300px;
+        }
+
+        .shengbei .left,
+        .shengbei .right,
+        .shengbei .center {
+          float: left;
+        }
+
+        .shengbei .center {
+          width: 100%;
+        }
+
+        .shengbei .left {
+          margin-left: -100%;
+          position: relative;
+          right: 300px;
+        }
+
+        .shengbei .right {
+          margin-right: -300px;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="center">
+          <h3>当前宽度:
+            <code class="code"></code>
+          </h3>
+          <p>主要内容</p>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+      </article>
+    </section>
+  </section>
+
+  <script>
+    window.addEventListener('resize', detectCenterWidth, false);
+    const selectors = ['shengbei'];
+    const elms = selectors.map(selector => document.getElementById(selector));
+    detectCenterWidth();
+
+    function detectCenterWidth() {
+      elms.forEach(elm => {
+        const center = elm.querySelector('.center');
+        const code = center && center.querySelector('.code');
+        if (code) {
+          code.innerHTML = center.clientWidth + 'px';
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>
