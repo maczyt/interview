@@ -65,6 +65,10 @@
           height: 0;
         }
 
+        .float {
+          min-width: 700px;
+        }
+
         .float .left {
           float: left;
         }
@@ -89,17 +93,105 @@
         </div>
       </article>
     </section>
-    <section class="reply" id="position">
+    <section class="reply position" id="position">
       <h2>定位布局</h2>
+      <style>
+        .position .left-center-right {
+          position: relative;
+        }
+
+        .position .column {
+          position: absolute;
+          top: 0;
+        }
+
+        .position .left {
+          left: 0;
+        }
+
+        .position .right {
+          right: 0;
+        }
+
+        .position .center {
+          left: 300px;
+          right: 300px;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="left column"></div>
+        <div class="right column"></div>
+        <div class="center column">
+          <h3>当前宽度:
+            <code class="code">200px;</code>
+          </h3>
+          <p>主要内容</p>
+        </div>
+      </article>
     </section>
-    <section class="reply" id="table">
+    <section class="reply table" id="table">
       <h2>CSS表格布局</h2>
+      <style>
+        .table .left-center-right {
+          display: table;
+          width: 100%;
+        }
+
+        .table .column {
+          display: table-cell;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="left column"></div>
+        <div class="center column">
+          <h3>当前宽度:
+            <code class="code">200px;</code>
+          </h3>
+          <p>主要内容</p>
+        </div>
+        <div class="right column"></div>
+      </article>
     </section>
-    <section class="reply" id="flex">
+    <section class="reply flex" id="flex">
       <h2>弹性盒子布局</h2>
+      <style>
+        .flex .left-center-right {
+          display: flex;
+        }
+
+        .flex .center {
+          flex: 1;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="left column"></div>
+        <div class="center column">
+          <h3>当前宽度:
+            <code class="code">200px;</code>
+          </h3>
+          <p>主要内容</p>
+        </div>
+        <div class="right column"></div>
+      </article>
     </section>
-    <section class="reply" id="grid">
-      <h2>弹性盒子布局</h2>
+    <section class="reply grid" id="grid">
+      <h2>Grid布局</h2>
+      <style>
+        .grid .left-center-right {
+          display: grid;
+          grid-template-columns: 300px auto 300px;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="left column"></div>
+        <div class="center column">
+          <h3>当前宽度:
+            <code class="code">200px;</code>
+          </h3>
+          <p>主要内容</p>
+        </div>
+        <div class="right column"></div>
+      </article>
     </section>
   </div>
 
