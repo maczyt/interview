@@ -1,0 +1,14 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d html"
+  },
+  "repository": "git@github.com:maczyt/interview.git",
+  "author": "maczyt <369280416@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}
