@@ -1,0 +1,62 @@
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+// 循环生成12col的样式
+.loop-col(@name, @n, @i) when(@i <= @n) {
+  .col-@{name}-@{i} {
+    grid-column: span @i;
+  }
+  .loop-col(@name, @n, @i + 1);
+}
+
+// 不同屏幕下开始是堆叠在一起的，当大于这些阈值时将变为水平排列C
+.loop-big-col(@name, @n, @i) when(@i <= @n) {
+  .col-@{name}-@{i} {
+    grid-column: span 12;
+  }
+  .loop-big-col(@name, @n, @i + 1);
+}
+
+/* 移动设备优先 */
+.container-fluid {
+  width: 100%;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+// 默认都独占一行
+.loop-big-col(lg, 12, 1);
+.loop-big-col(md, 12, 1);
+.loop-big-col(sm, 12, 1);
+// 移动设备列分布
+.loop-col(xs, 12, 1);
+
+@media (min-width: @screen-sm-min) {
+  /* 小屏幕 */
+  .container {
+    width: 750px;
+  }
+  // 该屏幕下的col分布
+  .loop-col(sm, 12, 1);
+}
+
+@media (min-width: @screen-md-min) {
+  /* 中等屏幕 */
+  .container {
+    width: 970px;
+  }
+  // 该屏幕下的col分布
+  .loop-col(md, 12, 1);
+}
+
+@media (min-width: @screen-lg-min) {
+  /* 大屏幕 */
+  .container {
+    width: 1170px;
+  }
+  // 该屏幕下的col分布
+  .loop-col(lg, 12, 1);
+}
+
