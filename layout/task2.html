@@ -62,7 +62,7 @@
           min-width: 900px;
         }
 
-        .left-center-right {
+        .shengbei .left-center-right {
           padding: 0 300px;
         }
 
@@ -97,11 +97,53 @@
         <div class="right"></div>
       </article>
     </section>
+
+    <section class="reply sfy" id="sfy">
+      <h2>双飞翼布局</h2>
+      <style>
+        .sfy {
+          min-width: 600px;
+        }
+
+        .sfy .column {
+          float: left;
+        }
+
+        .sfy .extra {
+          width: 100%;
+          height: 100%;
+        }
+
+        .sfy .center {
+          margin: 0 300px;
+        }
+
+        .sfy .left {
+          margin-left: -100%;
+        }
+
+        .sfy .right {
+          margin-left: -300px;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="extra column">
+          <div class="center">
+            <h3>当前宽度:
+              <code class="code"></code>
+            </h3>
+            <p>主要内容</p>
+          </div>
+        </div>
+        <div class="left column"></div>
+        <div class="right column"></div>
+      </article>
+    </section>
   </section>
 
   <script>
     window.addEventListener('resize', detectCenterWidth, false);
-    const selectors = ['shengbei'];
+    const selectors = ['shengbei', 'sfy'];
     const elms = selectors.map(selector => document.getElementById(selector));
     detectCenterWidth();
 
